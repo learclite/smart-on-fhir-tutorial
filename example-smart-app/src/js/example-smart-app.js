@@ -35,7 +35,10 @@
             console.log(patient.name[0].given);
             console.log(patient.name[0].family);
             fname = patient.name[0].given.join(' ');
-            lname = patient.name[0].family.join(' '); // Remove join for R4
+            if (typeof patient.name[0].family === 'Array')
+              lname = patient.name[0].family.join(' ');
+            else
+              lname = patient.name[0].family;
           }
 
           var height = byCodes('8302-2');
